@@ -10,10 +10,13 @@ import UIKit
 
 typealias Building = (name:String, library:Int)
 class Building_PhotoTableViewController: UITableViewController {
+    
+    
     let hanasquare = Building(name: "하나스퀘어", library: 2)
     let changueigwan = Building(name: "창의관", library: 1)
     let sciencelibrary = Building(name: "하과학도서관", library: 3)
     let Buildings:[Building] = [(name: "하나스퀘어", library: 2), (name: "창의관", library: 1), (name: "하과학도서관", library: 3)]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,6 +25,7 @@ class Building_PhotoTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -91,14 +95,24 @@ class Building_PhotoTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        // 목적지
+        let destVC = segue.destination as! ViewController
+        
+        // 선택한 아이템 찾기
+        
+        let selectedIndex = self.tableView.indexPathForSelectedRow?.row
+        let selected = Buildings[selectedIndex!]
+        
+        destVC.selectedBuilding = selected
     }
-    */
+    
 
 }
